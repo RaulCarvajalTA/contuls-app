@@ -4,7 +4,17 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [{
   path: '',
-  component: AppComponent
+  redirectTo: 'app',
+  pathMatch: 'full'
+},
+{
+  path: 'app',
+  children:[
+    {
+      path: '',
+      loadChildren: () => import('./contuls/contuls.module').then( m => m.ContulsModule)
+    }
+  ]
 }];
 
 @NgModule({
