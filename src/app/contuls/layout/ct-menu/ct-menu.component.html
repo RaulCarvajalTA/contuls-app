@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <mat-nav-list>
         <div *ngFor="let item of menu">
-            <mat-list-item [disabled]="item.disabled" [routerLink]="item.link" [activated]="!item.disabled">
+            <mat-list-item [disabled]="item.disabled" [routerLink]="item.link" [activated]="!item.disabled" routerLinkActive="active-menu-item">
                 <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
                 <div class="ct-sg-font" matListItemTitle>{{item.title}}</div>
                 <div class="ct-sg-font" *ngIf="item.subtitle" matListItemLine>{{item.subtitle}}</div>
