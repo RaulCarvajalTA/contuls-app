@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { CtMenu } from 'src/app/core/types/ct.types';
+import { Store } from '@ngrx/store';
+import { MenuEnum } from 'src/app/core/enums/ct.enums';
+import { ILayoutState, IMenuItem } from 'src/app/core/interfaces/ct.interfaces';
+import { TCtMenu } from 'src/app/core/types/ct.types';
+import { ContulsActions } from 'src/app/state';
+import { IContulsState } from 'src/app/state/contuls.state';
 
 @Component({
   selector: 'app-ct-menu',
@@ -8,7 +13,13 @@ import { CtMenu } from 'src/app/core/types/ct.types';
 })
 export class CtMenuComponent {
 
-  menu: CtMenu = [
+  constructor(
+    private store$: Store<IContulsState>
+  ){
+
+  }
+
+  menu: TCtMenu = [
     {
       title: 'Dashboard',
       icon: 'dashboard',

@@ -1,5 +1,5 @@
-import { MenuItem } from "../interfaces/ct.interface";
+import { IMenuItem } from "../interfaces/ct.interfaces";
 
-export type MenuStatusType = 0 | 1 | 2;
+export type TMenuStatusType = 0 | 1 | 2;
 
-export type CtMenu = MenuItem[];
+export type TCtMenu = IMenuItem[];

@@ -16,7 +16,8 @@ const routes: Routes = [
       {path: 'clients',loadChildren: () => import('./modules/clients/clients.module').then( m => m.ClientsModule)},
       {path: 'reports',loadChildren: () => import('./modules/reports/reports.module').then( m => m.ReportsModule)},
       {path: 'support',loadChildren: () => import('./modules/support/support.module').then( m => m.SupportModule)},
-      {path: 'admin',loadChildren: () => import('./modules/administration/administration.module').then( m => m.AdministrationModule)}
+      {path: 'admin',loadChildren: () => import('./modules/administration/administration.module').then( m => m.AdministrationModule)},
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },
 ];

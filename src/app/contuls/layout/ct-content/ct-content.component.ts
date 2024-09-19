@@ -1,28 +1,41 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
+import { State, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { MenuEnum } from 'src/app/core/enums/ct.enums';
+import { ILayoutState } from 'src/app/core/interfaces/ct.interfaces';
 import { LayoutService } from 'src/app/core/services/layout.service';
-import { MenuStatusType } from 'src/app/core/types/ct.types';
+import { TMenuStatusType } from 'src/app/core/types/ct.types';
+import { ContulsSelectors } from 'src/app/state';
+import { IContulsState } from 'src/app/state/contuls.state';
 
 @Component({
   selector: 'app-ct-content',
   templateUrl: './ct-content.component.html',
   styleUrls: ['./ct-content.component.scss']
 })
-export class CtContentComponent implements OnInit {
+export class CtContentComponent implements OnInit, AfterViewInit {
 
   @ViewChild('drawer') drawer!: MatDrawer;
-  menuStatus:MenuStatusType = MenuEnum.opened;
+
+  menuStatus: TMenuStatusType = MenuEnum.opened;
+  menuStatus$: Observable<TMenuStatusType>;
+
   showFiller = false;
 
+  layout$: Observable<ILayoutState>;
+
   constructor(
+    private state$: Store<IContulsState>,
     private _layoutService: LayoutService
   ){
-
+    this.layout$ = this.state$.select(ContulsSelectors.selectLayout);
+    this.menuStatus$ = this.state$.select(ContulsSelectors.selectMenuType);
   }
+  
   ngOnInit(): void {
-    
-    this._layoutService._sideMenuStatus$
+
+    this.menuStatus$
     .subscribe(
       menuStatus => {
         if(this.drawer){
@@ -33,7 +46,11 @@ export class CtContentComponent implements OnInit {
         }
       }
     )
+
   }
 
-
+  ngAfterViewInit(): void {
+    setTimeout(()=>this.drawer.open());
+  }
+  
 }

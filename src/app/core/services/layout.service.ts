@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { MenuStatusType } from '../types/ct.types';
+import { TMenuStatusType } from '../types/ct.types';
 import { MenuEnum } from '../enums/ct.enums';
 
 @Injectable({
@@ -8,12 +8,14 @@ import { MenuEnum } from '../enums/ct.enums';
 })
 export class LayoutService {
 
-  private _sideMenuStatus = new BehaviorSubject<MenuStatusType>(MenuEnum.opened);
+  private _sideMenuStatus = new BehaviorSubject<TMenuStatusType>(MenuEnum.opened);
   _sideMenuStatus$ = this._sideMenuStatus.asObservable();
 
-  constructor() { }
+  constructor(
+    
+  ) { }
 
-  changeMenuStatusType(type: MenuStatusType){
+  changeMenuStatusType(type: TMenuStatusType){
     this._sideMenuStatus.next(type);
   }
 
