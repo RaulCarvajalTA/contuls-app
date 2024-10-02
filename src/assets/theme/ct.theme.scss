@@ -1,0 +1,90 @@
+@use '@angular/material' as mat;
+@include mat.core();
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+$ct-primary: (
+  50: #C0E8FF,
+  100: #E1F3FF,
+  200: #98CEEA,
+  300: #7DB2CE,
+  400: #2C657E,
+  500: #487E98,
+  600: #6297B2,
+  700: #1D5871,
+  800: #094D65,
+  900: #004157,
+  A100: #FAFCFF,
+  A200: #F4FAFF,
+  A400: #003547,
+  A700: #00131C,
+  contrast: (
+    0: #FFFFFF,
+    50: #000000,
+    100: #00131C,
+    200: #001E2B,
+    300: #002939,
+    400: #003547,
+    500: #004157,
+    600: #094D65,
+    700: #1D5871,
+    800: #2C657E,
+    900: #487E98,
+  )
+);
+
+$ct-accent: (
+  50: #D9E4EC,   
+  100: #E7F2FA,  
+  200: #BDC8D0,  
+  300: #A2ADB4,  
+  400: #556067,  
+  500: #6E7980,  
+  600: #879299,  
+  700: #49545A,  
+  800: #3E484F,  
+  900: #323D43,  
+  A100: #FAFCFF, 
+  A200: #F4FAFF, 
+  A400: #273238, 
+  A700: #081218, 
+  contrast: (
+    0: #FFFFFF,  
+    50: #000000, 
+    100: #081218,
+    200: #121D23,
+    300: #1D272D,
+    400: #273238,
+    500: #323D43,
+    600: #3E484F,
+    700: #49545A,
+    800: #556067,
+    900: #6E7980,
+  )
+);
+
+$ct-warn: mat.define-palette(mat.$red-palette);
+
+$ct-ligth-theme: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette($ct-primary, A400, 200, 50),
+    accent: $ct-accent,
+    warn: $ct-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+// Define a dark theme
+$ct-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: mat.define-palette(mat.$teal-palette, 500),
+    accent: mat.define-palette(mat.$orange-palette, A400),
+    warn: $ct-warn
+  ),
+  typography: mat.define-typography-config(
+    $font-family: "Space Grotesk"
+  ),
+  density: 0,
+));
+
+@include mat.all-component-themes($ct-dark-theme);
