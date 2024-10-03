@@ -1,7 +1,8 @@
-import { ILayoutState } from "../core/interfaces/ct.interfaces";
+import { ILayoutState, IUser } from "../core/interfaces/ct.interfaces";
 
 export interface IContulsState {
-    layout: ILayoutState
+    layout: ILayoutState,
+    user: IUser
 }
 
 export interface RootApp {

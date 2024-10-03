@@ -1,12 +1,48 @@
-<div class="container-fluid">
-    <mat-nav-list>
-        <div *ngFor="let item of menu">
-            <mat-list-item [disabled]="item.disabled" [routerLink]="item.link" [activated]="!item.disabled" routerLinkActive="active-menu-item">
-                <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
-                <div class="ct-sg-font" matListItemTitle>{{item.title}}</div>
-                <div class="ct-sg-font" *ngIf="item.subtitle" matListItemLine>{{item.subtitle}}</div>
-            </mat-list-item>
-            <mat-divider class="w-100"></mat-divider>   
+<div class="container-fluid root-font" style="border-radius: 15px;">
+    <section>
+        <div class="row mt-2">
+            <div class="col text-center">
+                <h1 class="root-font">CONTULS</h1>
+            </div>
         </div>
-    </mat-nav-list>
+        <div class="row">
+            <div class="col text-center">
+                <img src="https://avatar.iran.liara.run/public" alt="avatar" class="img-fluid mx-auto" style="width: 200px">
+            </div>
+        </div>
+        <div class="row" *ngIf="(user$ | async) as user">
+            <div class="col text-center">
+                <p class="root-font">{{user.name}} <br><small>({{user.role}})</small></p>
+                <mat-divider class="w-100"></mat-divider> 
+            </div>
+        </div>
+    </section>
+    
+    <!--div class="row">
+        <div class="col">
+            <mat-nav-list>
+                <div *ngFor="let item of menu">
+                    <mat-list-item [disabled]="item.disabled" [routerLink]="item.link" [activated]="!item.disabled" routerLinkActive="active-menu-item">
+                        <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+                        <div class="ct-sg-font root-font" matListItemTitle>{{item.title}}</div>
+                        <div class="ct-sg-font root-font" *ngIf="item.subtitle" matListItemLine>{{item.subtitle}}</div>
+                    </mat-list-item>
+                    <mat-divider class="w-100"></mat-divider>   
+                </div>
+            </mat-nav-list>
+        </div>
+    </div -->
+
+    <section>
+        <div class="row" *ngFor="let item of menu">
+            <div class="col">
+                <a mat-button class="w-100 button-item-menu" [routerLink]="item.link" [disabled]="item.disabled" routerLinkActive="button-item-menu-active">
+                    <mat-icon>{{item.icon}}</mat-icon>
+                    {{item.title}}
+                </a>
+                <mat-divider class="w-100"></mat-divider>  
+            </div>
+        </div>
+    </section>
+    
 </div>

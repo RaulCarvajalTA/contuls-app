@@ -1,0 +1,14 @@
+Primero hacer todo para admin de contuls, sin pensar en clientes. Administración, clientes, contratos, servicios, activos, etc... La mayoria serian catálogos
+Para hacer mobile first hacer @medias para que el drawer para movil sea tipo PUSH y comienze siempre oculto..
+
+
+Para back me imagino aplicandolo en Java con Springboot. Al menos el core de la app, consulta a base de datos.
+Probaria tambien con .NET
+
+base de datos en mssql, mongo, mysql
+
+mqtt service para notificaciones con auth y ws integrado
+
+Microservicios en nodejs y python, scripts y monitoreo de cobranza, emails y reportes.
+
+OAUTH con google

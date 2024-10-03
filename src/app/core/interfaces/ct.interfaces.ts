@@ -15,3 +15,10 @@ export interface ILayoutState {
     subtitle: string | undefined | null,
     menu_status: TMenuStatusType
 }
+
+export interface IUser {
+    name: string,
+    role: string,
+    id_role: number,
+    email: string
+}

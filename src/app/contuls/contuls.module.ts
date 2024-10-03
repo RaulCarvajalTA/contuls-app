@@ -15,6 +15,7 @@ import { CtToolbarComponent } from './layout/ct-toolbar/ct-toolbar.component';
 import { CtContentComponent } from './layout/ct-content/ct-content.component';
 import { CtLayoutComponent } from './layout/ct-layout/ct-layout.component';
 import { CtMenuComponent } from './layout/ct-menu/ct-menu.component';
+import { RouterLinkActive } from '@angular/router';
 
 
 @NgModule({

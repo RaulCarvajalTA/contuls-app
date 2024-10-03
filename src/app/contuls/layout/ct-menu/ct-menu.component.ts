@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { MenuEnum } from 'src/app/core/enums/ct.enums';
-import { ILayoutState, IMenuItem } from 'src/app/core/interfaces/ct.interfaces';
+import { ILayoutState, IMenuItem, IUser } from 'src/app/core/interfaces/ct.interfaces';
 import { TCtMenu } from 'src/app/core/types/ct.types';
-import { ContulsActions } from 'src/app/state';
+import { ContulsActions, ContulsSelectors } from 'src/app/state';
 import { IContulsState } from 'src/app/state/contuls.state';
 
 @Component({
@@ -13,10 +14,12 @@ import { IContulsState } from 'src/app/state/contuls.state';
 })
 export class CtMenuComponent {
 
+  user$: Observable<IUser>;
+
   constructor(
     private store$: Store<IContulsState>
   ){
-
+    this.user$ = this.store$.select(ContulsSelectors.selectUser);
   }
 
   menu: TCtMenu = [

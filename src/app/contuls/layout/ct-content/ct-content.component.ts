@@ -6,7 +6,7 @@ import { MenuEnum } from 'src/app/core/enums/ct.enums';
 import { ILayoutState } from 'src/app/core/interfaces/ct.interfaces';
 import { LayoutService } from 'src/app/core/services/layout.service';
 import { TMenuStatusType } from 'src/app/core/types/ct.types';
-import { ContulsSelectors } from 'src/app/state';
+import { ContulsActions, ContulsSelectors } from 'src/app/state';
 import { IContulsState } from 'src/app/state/contuls.state';
 
 @Component({
@@ -26,11 +26,11 @@ export class CtContentComponent implements OnInit, AfterViewInit {
   layout$: Observable<ILayoutState>;
 
   constructor(
-    private state$: Store<IContulsState>,
+    private store$: Store<IContulsState>,
     private _layoutService: LayoutService
   ){
-    this.layout$ = this.state$.select(ContulsSelectors.selectLayout);
-    this.menuStatus$ = this.state$.select(ContulsSelectors.selectMenuType);
+    this.layout$ = this.store$.select(ContulsSelectors.selectLayout);
+    this.menuStatus$ = this.store$.select(ContulsSelectors.selectMenuType);
   }
   
   ngOnInit(): void {
@@ -50,7 +50,8 @@ export class CtContentComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    setTimeout(()=>this.drawer.open());
+    setTimeout(() => this.drawer.open());
+    this.store$.dispatch(ContulsActions.setMenuStatus({status:MenuEnum.collapsed}))
   }
   
 }

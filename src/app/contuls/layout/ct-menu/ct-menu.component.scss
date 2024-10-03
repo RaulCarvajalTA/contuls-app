@@ -1,0 +1,19 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+.root-font{
+    font-family: "Space Grotesk", "Helvetica Neue", sans-serif !important;
+}
+
+.button-item-menu{
+    font-family: "Space Grotesk", "Helvetica Neue", sans-serif !important;
+    justify-content: start !important;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.button-item-menu-active{
+    color: mat.get-color-from-palette(mat.$teal-palette, 500) !important;
+}
