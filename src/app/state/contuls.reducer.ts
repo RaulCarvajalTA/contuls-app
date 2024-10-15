@@ -14,7 +14,8 @@ const initialState: IContulsState = {
         role: "Administrador",
         id_role: 1,
         email: "rcarvajal@tecnoap.com"
-    }
+    },
+    toobarActions: []
 }
 
 export const reducer = createReducer(initialState,
@@ -22,4 +23,5 @@ export const reducer = createReducer(initialState,
     on(ContulsActions.setMenuStatus, (state,action):IContulsState => ({...state, layout: {...state.layout, menu_status: action.status}})),
     on(ContulsActions.setModule, (state,action):IContulsState => ({...state, layout: {...state.layout, title: action.title, subtitle: action.subtitle}})),
     on(ContulsActions.setUser, (state,action):IContulsState => ({...state, user: action.user})),
+    on(ContulsActions.setToolbarActions, (state,action):IContulsState => ({...state, toobarActions: action.toolbarActions})),
 );

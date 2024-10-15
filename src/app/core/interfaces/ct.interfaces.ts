@@ -22,3 +22,11 @@ export interface IUser {
     id_role: number,
     email: string
 }
+
+export interface IToolbarAction {
+    name: string,
+    action: string,
+    icon: string,
+    tooltip: string,
+    enable: boolean
+}

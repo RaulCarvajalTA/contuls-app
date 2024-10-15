@@ -1,0 +1,33 @@
+<section class="row mt-2">
+    <div class="col">
+        <mat-form-field class="w-100">
+            <mat-label>Búscar</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Búsqueda" #input>
+        </mat-form-field>          
+    </div>
+</section>
+
+<section class="row">
+    <div class="col">
+        
+        <table mat-table [dataSource]="dataSource" class="w-100" matSort>
+
+            <ng-container *ngFor="let column of configuration.columns" [matColumnDef]="column.propierty">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column.header }} </th>
+                <td mat-cell *matCellDef="let element" (click)="onRowClick(element)">
+                  {{ element[column.propierty] }}
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+          
+    </div>
+</section>
+
+<section class="row mt-2">
+    <div class="col">
+        <mat-paginator showFirstLastButtons [pageSizeOptions]="items_per_page_options" (page)="onPageChange($event)"></mat-paginator>
+    </div>
+</section>

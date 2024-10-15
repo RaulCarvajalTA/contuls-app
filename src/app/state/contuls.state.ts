@@ -1,8 +1,9 @@
-import { ILayoutState, IUser } from "../core/interfaces/ct.interfaces";
+import { ILayoutState, IToolbarAction, IUser } from "../core/interfaces/ct.interfaces";
 
 export interface IContulsState {
     layout: ILayoutState,
-    user: IUser
+    user: IUser,
+    toobarActions: IToolbarAction[]
 }
 
 export interface RootApp {

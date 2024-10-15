@@ -1,0 +1,25 @@
+<section class="row">
+    <section class="col-sm-12 col-md-8 col-lg-8">
+        <mat-list *ngIf="(user$ | async) as user">
+            <div mat-subheader>Mi información</div>
+            <mat-list-item>
+                <mat-icon matListItemIcon>face</mat-icon>
+                <div matListItemTitle>{{user.name}}</div>
+                <div matListItemLine>Nombre</div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>contact_mail</mat-icon>
+                <div matListItemTitle>{{user.email}}</div>
+                <div matListItemLine>Email</div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon matListItemIcon>groups</mat-icon>
+                <div matListItemTitle>{{user.role}}</div>
+                <div matListItemLine>Rol</div>
+            </mat-list-item>
+        </mat-list>          
+    </section>
+    <section class="col-sm-12 col-md-4 col-lg-4 text-center">
+        <img src="https://avatar.iran.liara.run/public" alt="avatar" class="img-fluid mx-auto" style="width: 200px">
+    </section>
+</section>

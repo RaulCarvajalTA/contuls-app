@@ -10,12 +10,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+import { LayoutModule } from '@angular/cdk/layout';
 
 import { CtToolbarComponent } from './layout/ct-toolbar/ct-toolbar.component';
 import { CtContentComponent } from './layout/ct-content/ct-content.component';
 import { CtLayoutComponent } from './layout/ct-layout/ct-layout.component';
 import { CtMenuComponent } from './layout/ct-menu/ct-menu.component';
-import { RouterLinkActive } from '@angular/router';
 
 
 @NgModule({
@@ -35,7 +38,9 @@ import { RouterLinkActive } from '@angular/router';
     MatSidenavModule,
     MatCardModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatProgressBarModule,
+    MatTooltipModule
   ]
 })
 export class ContulsModule { }

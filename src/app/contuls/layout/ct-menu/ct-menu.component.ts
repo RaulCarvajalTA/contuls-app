@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { MenuEnum } from 'src/app/core/enums/ct.enums';
@@ -12,14 +13,23 @@ import { IContulsState } from 'src/app/state/contuls.state';
   templateUrl: './ct-menu.component.html',
   styleUrls: ['./ct-menu.component.scss']
 })
-export class CtMenuComponent {
+export class CtMenuComponent implements OnInit {
 
   user$: Observable<IUser>;
 
   constructor(
-    private store$: Store<IContulsState>
+    private store$: Store<IContulsState>,
+    private breakpointObserver: BreakpointObserver
   ){
     this.user$ = this.store$.select(ContulsSelectors.selectUser);
+  }
+
+  ngOnInit(): void {
+    this.breakpointObserver
+    .observe([Breakpoints.Small, Breakpoints.Handset])
+    .subscribe(
+      matches => console.log(matches)
+    )
   }
 
   menu: TCtMenu = [
