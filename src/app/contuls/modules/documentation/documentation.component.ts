@@ -12,6 +12,7 @@ export class DocumentationComponent {
   constructor(
     private store$: Store<IContulsState>
   ){
-    this.store$.dispatch(ContulsActions.setModule({title: 'Documentación', subtitle: null}))
+    this.store$.dispatch(ContulsActions.setModule({title: 'Documentación', subtitle: null}));
+    this.store$.dispatch(ContulsActions.setToolbarActions({toolbarActions: []}))
   }
 }

@@ -12,6 +12,7 @@ export class AssetsComponent {
   constructor(
     private store$: Store<IContulsState>
   ){
-    this.store$.dispatch(ContulsActions.setModule({title: 'Activos', subtitle: null}))
+    this.store$.dispatch(ContulsActions.setModule({title: 'Activos', subtitle: null}));
+    this.store$.dispatch(ContulsActions.setToolbarActions({toolbarActions: []}))
   }
 }

@@ -12,6 +12,7 @@ export class SupportComponent {
   constructor(
     private store$: Store<IContulsState>
   ){
-    this.store$.dispatch(ContulsActions.setModule({title: 'Soporte', subtitle: null}))
+    this.store$.dispatch(ContulsActions.setModule({title: 'Soporte', subtitle: null}));
+    this.store$.dispatch(ContulsActions.setToolbarActions({toolbarActions: []}));
   }
 }

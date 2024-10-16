@@ -12,6 +12,7 @@ export class AreasComponent {
   constructor(
     private store$: Store<IContulsState>
   ){
-    this.store$.dispatch(ContulsActions.setModule({title: 'Áreas', subtitle: null}))
+    this.store$.dispatch(ContulsActions.setModule({title: 'Áreas', subtitle: null}));
+    this.store$.dispatch(ContulsActions.setToolbarActions({toolbarActions: []}))
   }
 }

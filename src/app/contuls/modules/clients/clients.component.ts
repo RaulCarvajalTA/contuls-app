@@ -13,7 +13,8 @@ export class ClientsComponent {
   constructor(
     private store$: Store<IContulsState>
   ){
-    this.store$.dispatch(ContulsActions.setModule({title: 'Clientes', subtitle: null}))
+    this.store$.dispatch(ContulsActions.setModule({title: 'Clientes', subtitle: null}));
+    this.store$.dispatch(ContulsActions.setToolbarActions({toolbarActions: []}))
   }
   
 }
